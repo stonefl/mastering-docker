@@ -5,6 +5,10 @@ LABEL description="An image with the latest version on Consul."
 ENV CONSUL_VERSION 0.8.4
 ENV CONSUL_SHA256 c8859a0a34c50115cdff147f998b2b63226f5f052e50f342209142420d1c2668
 ENV CONSUL_UI_SHA256 7a49924a872205002b2bf72af8c82d5560d4a7f4a58b2f65ee284dd254ebd063
+# set proxy
+ENV HTTPS_PROXY="https://internet.proxy.fedex.com:3128"
+ENV HTTP_PROXY="http://internet.proxy.fedex.com:3128"
+
 
 RUN  apk add --update ca-certificates wget && \
      wget -O consul.zip https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip && \

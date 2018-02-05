@@ -1,7 +1,10 @@
 FROM alpine:latest
 LABEL maintainer="Russ McKendrick <russ@mckendrick.io>"
 LABEL description="This example Dockerfile installs Apache & PHP."
-ENV PHPVERSION 7
+ENV PHPVERSION 5
+# set proxy
+ENV HTTPS_PROXY="https://internet.proxy.fedex.com:3128"
+ENV HTTP_PROXY="http://internet.proxy.fedex.com:3128"
 
 RUN apk add --update apache2 php${PHPVERSION}-apache2 php${PHPVERSION} && \
         rm -rf /var/cache/apk/* && \

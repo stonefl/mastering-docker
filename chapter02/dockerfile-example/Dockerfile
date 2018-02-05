@@ -1,6 +1,12 @@
+
 FROM alpine:latest
-LABEL maintainer="Russ McKendrick <russ@mckendrick.io>"
+LABEL maintainer="Lei Feng <leifeng@fedex.com>"
 LABEL description="This example Dockerfile installs NGINX."
+
+# set proxy
+ENV HTTPS_PROXY="https://internet.proxy.fedex.com:3128"
+ENV HTTP_PROXY="http://internet.proxy.fedex.com:3128"
+
 RUN apk add --update nginx && \
         rm -rf /var/cache/apk/* && \
         mkdir -p /tmp/nginx/
